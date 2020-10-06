@@ -25,7 +25,12 @@
         Submit
       </b-button>
 
-      <b-button variant="success" href="#" @click="next">Next</b-button>
+      <b-button
+      variant="success"
+      href="#"
+      @click="next">
+       Next
+      </b-button>
     </b-jumbotron>
   </div>
 </template>
