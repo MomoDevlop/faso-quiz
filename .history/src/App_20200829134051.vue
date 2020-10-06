@@ -1,5 +1,3 @@
-<!-- Orthers components must be include here-->
-
 <template>
   <div id="app">
     <navigation
@@ -58,15 +56,16 @@ export default {
   },
 
   mounted:  function(){
-    // To fetch data from an API
     fetch('https://opentdb.com/api.php?amount=10&category=27&type=multiple',{
       method : 'get'
     })
     .then((response)=>{
+      console.log(response.json())
       return response.json()
     })
     .then((jsonData)=>{
       this.questions = jsonData.results
+      console.log(this.jsonData)
     })
   }
 

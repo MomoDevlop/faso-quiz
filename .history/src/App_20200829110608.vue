@@ -1,11 +1,6 @@
-<!-- Orthers components must be include here-->
-
 <template>
   <div id="app">
-    <navigation
-    :numCorrect="numCorrect"
-    :numTotal="numTotal"
-    />
+    <navigation />
     <b-container class="bv-example-row">
         <b-row>
           <b-col sm="6" offset="3">
@@ -38,27 +33,17 @@ export default {
       questions: [],
       correctAnswer:'',
       incorrectAnswers:[],
-      index:0,
-      numCorrect: 0,
-      numTotal: 0
+      index:0
     }
   },
   methods: {
     next(){
       this.index++
-
-    },
-    increment(isCorrect){
-      if(isCorrect){
-        this.numCorrect++
-      }
-      this.numTotal++
     }
 
   },
 
   mounted:  function(){
-    // To fetch data from an API
     fetch('https://opentdb.com/api.php?amount=10&category=27&type=multiple',{
       method : 'get'
     })
@@ -67,6 +52,7 @@ export default {
     })
     .then((jsonData)=>{
       this.questions = jsonData.results
+      console.log(this.questions)
     })
   }
 

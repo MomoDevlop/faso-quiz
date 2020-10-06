@@ -1,5 +1,3 @@
-<!-- Orthers components must be include here-->
-
 <template>
   <div id="app">
     <navigation
@@ -67,6 +65,7 @@ export default {
     })
     .then((jsonData)=>{
       this.questions = jsonData.results
+      console.log(this.jsonData)
     })
   }
 

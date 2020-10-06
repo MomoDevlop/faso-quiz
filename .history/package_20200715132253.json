@@ -11,7 +11,6 @@
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
-    "lodash": "^4.17.20",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -36,7 +35,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-console": 0
+      "no-console":0
     }
   },
   "browserslist": [

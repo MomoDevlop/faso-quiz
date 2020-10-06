@@ -1,5 +1,3 @@
-<!-- Orthers components must be include here-->
-
 <template>
   <div id="app">
     <navigation
