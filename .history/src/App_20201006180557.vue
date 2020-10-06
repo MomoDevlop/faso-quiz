@@ -12,8 +12,6 @@
           Vous n'avez droit qu'à 10 questions!! Veuillez cliquer sur <strong> Reset </strong> pour recommencer
         </h3>
       </div>
-    </div>
-    <div class="row">
       <div class="col-xs-12 m-5">
         Vôtre score est de <strong> {{numCorrect}} / 10 </strong>
       </div>

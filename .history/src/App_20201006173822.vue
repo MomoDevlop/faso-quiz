@@ -1,21 +1,20 @@
 <!-- Orthers components must be include here-->
 
 <template>
-    <div id="app">
+  <div id="app">
     <navigation
     :numCorrect="numCorrect"
     :numTotal="numTotal"
     />
     <div class="row">
       <div class="col-xs-12 m-5" v-show="isEnd">
-        <h3>
+        <button class="btn btn-succes">
           Vous n'avez droit qu'à 10 questions!! Veuillez cliquer sur <strong> Reset </strong> pour recommencer
-        </h3>
+        </button>
+
       </div>
-    </div>
-    <div class="row">
       <div class="col-xs-12 m-5">
-        Vôtre score est de <strong> {{numCorrect}} / 10 </strong>
+        Votre score est de <strong> {{numCorrect}} / 10 </strong>
       </div>
     </div>
     <b-container class="bv-example-row">
@@ -31,8 +30,8 @@
           </b-col>
         </b-row>
     </b-container>
-  </div>
 
+  </div>
 </template>
 
 <script>

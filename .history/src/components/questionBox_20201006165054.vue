@@ -27,7 +27,6 @@
 
       <b-button
       variant="success"
-      :disabled="isEnd"
       href="#"
       @click="next">
        Next
@@ -35,8 +34,8 @@
       <b-button
       variant="danger"
       href="#"
-      @click="relaodPage()">
-       Reset
+      @click="next">
+       Next
       </b-button>
     </b-jumbotron>
   </div>
@@ -93,9 +92,6 @@ export default {
         isCorrect = true
       }
       this.increment(isCorrect)
-    },
-    relaodPage () {
-      window.location.reload()
     },
     /*
     *@params index {number}

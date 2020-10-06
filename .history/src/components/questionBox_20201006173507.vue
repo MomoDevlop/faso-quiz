@@ -35,7 +35,7 @@
       <b-button
       variant="danger"
       href="#"
-      @click="relaodPage()">
+      @click="location.reload()">
        Reset
       </b-button>
     </b-jumbotron>

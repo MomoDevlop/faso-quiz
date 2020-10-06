@@ -35,7 +35,7 @@
       <b-button
       variant="danger"
       href="#"
-      @click="relaodPage()">
+      @click="location.reload()">
        Reset
       </b-button>
     </b-jumbotron>
@@ -93,9 +93,6 @@ export default {
         isCorrect = true
       }
       this.increment(isCorrect)
-    },
-    relaodPage () {
-      window.location.reload()
     },
     /*
     *@params index {number}
