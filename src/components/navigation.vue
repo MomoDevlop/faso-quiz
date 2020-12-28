@@ -1,7 +1,7 @@
 <template>
- <b-nav tabs>
-      <b-nav-item disabled><b>Fancy quiz app</b> </b-nav-item>
-      <b-nav-item disabled>Counter : {{numCorrect}}/{{numTotal}} </b-nav-item>
+ <b-nav tabs class="text-center">
+      <b-nav-item disabled><b> <strong>Faso Quiz</strong>  </b> </b-nav-item>
+      <b-nav-item disabled>Compteur : {{index + 1}} / 10 </b-nav-item>
  </b-nav>
 
 </template>
@@ -10,7 +10,8 @@
 export default {
      props: [
           'numCorrect',
-          'numTotal'
+          'index',
+          'numTotalAnswered'
      ]
 }
 </script>

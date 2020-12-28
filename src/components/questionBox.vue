@@ -1,8 +1,7 @@
 <template>
   <div class="question-box-container">
     <b-jumbotron>
-      <template v-slot:lead>{{currentQuestion.question}}</template>
-
+      <template v-slot:lead>{{question}}</template>
       <hr class="my-4" />
       <b-list-group>
 
@@ -17,26 +16,33 @@
 
       </b-list-group>
 
+       <b-button
+      variant="primary"
+      @click="timer()"
+      :disabled="isTimerStarted || isEnd"
+      >
+        Commencer
+      </b-button>
       <b-button
       variant="primary"
       @click="submitAnswer()"
-      :disabled="this.selectedIndex === null || this.isSubmit"
+      :disabled="this.selectedIndex === null || this.isSubmit || !isTimerStarted"
       >
-        Submit
+        Valider
       </b-button>
 
       <b-button
       variant="success"
-      :disabled="isEnd"
+      :disabled=" isEnd || !isTimerStarted"
       href="#"
       @click="next">
-       Next
+       Suivant   
       </b-button>
       <b-button
       variant="danger"
       href="#"
-      @click="relaodPage()">
-       Reset
+      @click="fetchData()">
+       Rénitialiser
       </b-button>
     </b-jumbotron>
   </div>
@@ -51,7 +57,14 @@ export default {
   props: {
     currentQuestion: Object,
     next: Function,
-    increment: Function
+    timer: Function,
+    showModal: Function,
+    hideModal: Function,
+    increment: Function,
+    fetchData: Function,
+    index: Number,
+    isEnd: Boolean,
+    isTimerStarted: Boolean
   },
   data(){
     return  {
@@ -89,13 +102,13 @@ export default {
       let isCorrect = false
       this.isSubmit = true
 
-      if(this.shuffleAnswers[this.selectedIndex] ===this.currentQuestion.correct_answer){
+      if(this.shuffleAnswers[this.selectedIndex] === this.currentQuestion.correct_answer){
         isCorrect = true
       }
       this.increment(isCorrect)
-    },
-    relaodPage () {
-      window.location.reload()
+      if(this.index >= 9) {
+          this.showModal()
+      } 
     },
     /*
     *@params index {number}
@@ -124,6 +137,9 @@ export default {
       answers.push(this.currentQuestion.correct_answer);
       this.answers = answers
       return this.answers;
+    },
+    question() {
+      return this.currentQuestion.question.trim().replace(/["~!@#$%^&*\(\)_+=`{}\[\]\|\\:;'<>,.\/?"\-\t\r\n]+/g, '');
     }
   }
 };
